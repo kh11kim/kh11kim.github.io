@@ -1,0 +1,35 @@
+@import url("../css/reset.css");
+@import url("../css/lato.css");
+@import url("../css/prociono.css");
+@import url("../css/fontawesome.css");
+
+html,
+body {
+
+    /* Align */
+    top: 0;
+    margin: 0;
+    padding: 0;
+
+    /* Size */
+    height: 100%;
+    min-height: 100%;
+}
+
+br {
+    display: block;
+    content: "";
+    margin-top: 0;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

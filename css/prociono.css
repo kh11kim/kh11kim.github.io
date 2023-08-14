@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Prociono';
+    src: url('../fonts/prociono/Prociono-Regular-webfont.eot');
+    src: url('../fonts/prociono/Prociono-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/prociono/Prociono-Regular-webfont.woff') format('woff'),
+         url('../fonts/prociono/Prociono-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/prociono/Prociono-Regular-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
