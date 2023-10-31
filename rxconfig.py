@@ -7,5 +7,4 @@ class WebsiteConfig(rx.Config):
 
 config = WebsiteConfig(
     app_name="website",
-    #env=rx.Env.DEV,
 )
