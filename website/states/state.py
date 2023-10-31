@@ -2,6 +2,5 @@ import reflex as rx
 
 
 class State(rx.State):
-    """The app state."""
-
+    """GitHub only supports static hosting."""
     pass
