@@ -1,0 +1,5 @@
+.DS_Store
+.venv/
+tools/hand-render/out/
+tools/hand-render/*.png
+tools/hand-render/frames.json
