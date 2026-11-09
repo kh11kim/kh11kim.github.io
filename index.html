@@ -45,13 +45,15 @@
 
   /* Header */
   /* Photo + links float right so the bio wraps around them and flows underneath. */
-  .side { float: right; width: clamp(180px, 22vw, 250px); margin: -92px 0 14px 44px; }
+  .side { float: right; width: clamp(180px, 22vw, 250px); margin: -128px 0 14px 44px; }
   h1 { color: var(--title); font: 600 40px/1.1 var(--serif); letter-spacing: -0.015em; position: relative; padding-right: 76px; display: inline-block; cursor: default; }
   h1 .m { display: inline-block; position: relative; z-index: 1; }
   /* 9-frame sprite: 0 wave, 1-4 turn + preshape, 5-8 close */
   .hand { position: absolute; left: 0; top: 0; width: 72px; height: 72px; pointer-events: none;
     background: url(images/allegro-grasp.webp) 0 0 / 900% 100% no-repeat; transform-origin: 50% 88%; will-change: transform; }
   .role { color: var(--muted); margin-top: 8px; }
+  .note-job { margin-top: 12px; max-width: calc(100% - clamp(180px, 22vw, 250px) - 44px); padding-left: 12px; border-left: 2px solid var(--accent); font-size: 14.5px; color: var(--muted); }
+  .note-job a { font-weight: 600; }
   .bio { margin-top: 20px; color: var(--soft); }
   .bio p + p { margin-top: 12px; }
   .bio::after { content: ""; display: block; clear: both; }
@@ -106,6 +108,7 @@
   @media (max-width: 640px) {
     .wrap { padding: 48px 20px 40px; }
     .side { width: 136px; margin: 5px 0 10px 18px; }
+    .note-job { max-width: none; }
     .contact { margin-top: 8px; font-size: 13px; }
     h1 { font-size: 32px; }
     h1 { padding-right: 62px; }
@@ -125,6 +128,7 @@
     <div>
       <h1><span class="name">Kanghyun Ki<span class="m">m</span></span><span class="hand" aria-hidden="true"></span></h1>
       <p class="role">Ph.D. candidate, KAIST EE</p>
+      <p class="note-job"><a href="mailto:kh11kim@kaist.ac.kr">On the job market</a> starting Spring 2027. Feel free to reach out!</p>
       <div class="bio">
         <figure class="side">
           <img class="photo" src="images/profile.jpg" alt="Kanghyun Kim with a humanoid robot">
