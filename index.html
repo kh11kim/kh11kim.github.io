@@ -49,7 +49,7 @@
   h1 { color: var(--title); font: 600 40px/1.1 var(--serif); letter-spacing: -0.015em; position: relative; padding-right: 76px; display: inline-block; cursor: default; }
   h1 .m { display: inline-block; position: relative; z-index: 1; }
   /* 9-frame sprite: 0 wave, 1-4 turn + preshape, 5-8 close */
-  .hand { position: absolute; left: 0; top: 0; width: 72px; height: 72px; pointer-events: none;
+  .hand { position: absolute; left: 0; top: 0; width: 72px; height: 72px; cursor: pointer; -webkit-tap-highlight-color: transparent;
     background: url(images/allegro-grasp.webp) 0 0 / 900% 100% no-repeat; transform-origin: 50% 88%; will-change: transform; }
   .role { color: var(--muted); margin-top: 8px; }
   .note-job { margin-top: 12px; max-width: calc(100% - clamp(180px, 22vw, 250px) - 44px); padding-left: 12px; border-left: 2px solid var(--accent); font-size: 14.5px; color: var(--muted); }
@@ -229,7 +229,7 @@
   <footer>Last updated November 2026</footer>
 </div>
 <script>
-// On load: a small wave. On hover: turn toward the "m" while preshaping, approach, close.
+// On load: a small wave. Brushing the hand: turn toward the "m", preshape, approach, close. Clicking it: let go.
 (() => {
   const h1 = document.querySelector('h1'), name = h1.querySelector('.name');
   const m = h1.querySelector('.m'), hand = h1.querySelector('.hand');
@@ -283,7 +283,7 @@
     };
     raf = requestAnimationFrame(step);
   }
-  // Grasp while hovered, let go when the pointer leaves; each run finishes before the next starts.
+  // Each run finishes before the next starts.
   let want = 'rest';
   function sync() {
     if (state === 'busy' || state === want) return;
@@ -305,12 +305,12 @@
     }, 400);
   });
   if (still) return;
-  h1.addEventListener('mouseenter', () => { want = 'held'; sync(); });
-  h1.addEventListener('mouseleave', () => { want = 'rest'; sync(); });
-  // Touch: tap toggles.
-  h1.addEventListener('click', e => {
-    if (matchMedia('(hover: hover)').matches) return;
-    want = want === 'held' ? 'rest' : 'held'; sync();
+  hand.addEventListener('mouseenter', () => { if (state === 'rest') { want = 'held'; sync(); } });
+  // Click lets go; on touch screens (no hover) a tap also grasps.
+  hand.addEventListener('click', () => {
+    if (state === 'held') want = 'rest';
+    else if (state === 'rest' && !matchMedia('(hover: hover)').matches) want = 'held';
+    sync();
   });
 })();
 </script>
